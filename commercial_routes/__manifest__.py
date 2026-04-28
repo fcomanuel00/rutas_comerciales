@@ -24,7 +24,7 @@ Plan your field sales visits efficiently:
     'support': 'info@framarketing.es',
     'license': 'OPL-1',
     'currency': 'EUR',
-    'price': 0.0,
+    'price': 29.0,
     'category': 'Sales/Sales',
     'depends': ['base', 'contacts', 'mail'],
     'images': ['static/description/banner.png'],

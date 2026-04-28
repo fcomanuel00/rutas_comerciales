@@ -26,7 +26,7 @@ Plan your field sales visits efficiently:
     'currency': 'EUR',
     'price': 29.0,
     'category': 'Sales/Sales',
-    'depends': ['base', 'contacts', 'mail'],
+    'depends': ['base', 'contacts', 'mail', 'base_geolocalize'],
     'images': ['static/description/banner.png'],
     'data': [
         'security/commercial_routes_security.xml',

@@ -18,7 +18,7 @@ class CommercialRouteAddClients(models.TransientModel):
     partner_ids = fields.Many2many('res.partner', string='Customers')
 
     def action_search(self):
-        domain = [('active', '=', True)]
+        domain = [('active', '=', True), ('customer_rank', '>', 0)]
         if self.city_filter:
             domain.append(('city', 'ilike', self.city_filter))
         if self.zone_filter:

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_commercial_routes_root"
+              name="Commercial Routes"
+              sequence="52"
+              groups="commercial_routes.group_commercial_routes_user"
+              web_icon="commercial_routes,static/description/icon.png"/>
+
+    <menuitem id="menu_commercial_routes_list"
+              name="My Routes"
+              parent="menu_commercial_routes_root"
+              action="action_commercial_route"
+              sequence="10"/>
+
+    <menuitem id="menu_commercial_routes_partners"
+              name="Customers by Zone"
+              parent="menu_commercial_routes_root"
+              sequence="20"
+              action="base.action_partner_form"/>
+
+</odoo>

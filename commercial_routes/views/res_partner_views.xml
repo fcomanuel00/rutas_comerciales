@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_partner_form_commercial_routes" model="ir.ui.view">
+        <field name="name">res.partner.form.commercial.routes</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='city']" position="after">
+                <field name="x_zona" placeholder="Zone (e.g. City Centre, North Industrial)"/>
+            </xpath>
+
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button name="action_view_visits"
+                        type="object"
+                        class="oe_stat_button"
+                        icon="fa-map-marker"
+                        groups="commercial_routes.group_commercial_routes_user"
+                        invisible="route_visit_count == 0">
+                    <field name="route_visit_count" widget="statinfo" string="Visits"/>
+                </button>
+            </xpath>
+
+            <xpath expr="//page[@name='internal_notes']" position="after">
+                <page string="GPS Coordinates" name="gps_coords"
+                      groups="commercial_routes.group_commercial_routes_user">
+                    <group>
+                        <group string="Geographic Position">
+                            <field name="x_latitude"/>
+                            <field name="x_longitude"/>
+                        </group>
+                        <group string="Tools">
+                            <div colspan="2">
+                                <button name="action_geocode"
+                                        type="object"
+                                        string="📍 Get coordinates from address"
+                                        class="btn btn-primary"
+                                        groups="commercial_routes.group_commercial_routes_user"/>
+                                <p class="text-muted mt-2" style="font-size:12px;">
+                                    Fill in the address fields first, then click the button.
+                                    Requires a Google Maps API key in Settings.
+                                </p>
+                            </div>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+
+    <!-- Columna Zona en la lista de contactos -->
+    <record id="view_partner_list_commercial_routes" model="ir.ui.view">
+        <field name="name">res.partner.list.commercial.routes</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='city']" position="after">
+                <field name="x_zona" optional="show"
+                       groups="commercial_routes.group_commercial_routes_user"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

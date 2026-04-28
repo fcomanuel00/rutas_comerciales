@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ── FORMULARIO ─────────────────────────────────────────────── -->
+    <record id="view_commercial_route_form" model="ir.ui.view">
+        <field name="name">commercial.route.form</field>
+        <field name="model">commercial.route</field>
+        <field name="arch" type="xml">
+            <form string="Commercial Route">
+                <header>
+                    <button name="action_start"
+                            string="Start Route"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft'"/>
+                    <button name="action_done"
+                            string="Mark as Done"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'in_progress'"/>
+                    <button name="action_reset_to_draft"
+                            string="Reset to Draft"
+                            type="object"
+                            groups="commercial_routes.group_commercial_routes_manager"
+                            invisible="state == 'draft'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="draft,in_progress,done"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object"
+                                name="action_open_google_maps"
+                                class="oe_stat_button"
+                                icon="fa-map"
+                                invisible="not google_maps_url">
+                            <div class="o_field_widget o_stat_info">
+                                <span class="o_stat_text">Open Maps</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"
+                                   placeholder="e.g. Seville Centre – Monday"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="date"/>
+                            <field name="user_id"/>
+                        </group>
+                        <group>
+                            <field name="stop_count" string="Total paradas"/>
+                            <field name="visited_count" string="Visitados"/>
+                            <field name="order_count" string="Pedidos"/>
+                        </group>
+                    </group>
+
+                    <group string="Customer Filters">
+                        <group>
+                            <field name="city_filter" placeholder="e.g. Seville"/>
+                            <field name="zone_filter" placeholder="e.g. Triana, North Industrial"/>
+                        </group>
+                        <group>
+                            <div>
+                                <button name="action_add_clients"
+                                        string="➕ Add Customers"
+                                        type="object"
+                                        class="btn btn-secondary"/>
+                                <button name="action_geocode_all"
+                                        string="📍 Geocode All"
+                                        type="object"
+                                        class="btn btn-secondary ms-2"
+                                        groups="commercial_routes.group_commercial_routes_manager"/>
+                                <button name="action_optimize_route"
+                                        string="🗺️ Optimize Order"
+                                        type="object"
+                                        class="btn btn-primary ms-2"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <field name="stop_ids">
+                        <list string="Stops"
+                              editable="bottom"
+                              decoration-success="result == 'order'"
+                              decoration-info="result == 'not_home'"
+                              decoration-warning="result == 'callback'"
+                              decoration-danger="result == 'no_order'">
+                            <field name="sequence" widget="handle"/>
+                            <field name="partner_id" required="1"/>
+                            <field name="partner_city" optional="show"/>
+                            <field name="partner_zone" optional="show"/>
+                            <field name="partner_phone" optional="show"/>
+                            <field name="partner_has_coords" optional="show" string="GPS"/>
+                            <field name="visited"/>
+                            <field name="visit_date" optional="hide"/>
+                            <field name="result" invisible="not visited"/>
+                            <field name="notes" optional="show"/>
+                        </list>
+                    </field>
+
+                    <field name="notes" placeholder="General route notes…"/>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ── LISTA ──────────────────────────────────────────────────── -->
+    <record id="view_commercial_route_list" model="ir.ui.view">
+        <field name="name">commercial.route.list</field>
+        <field name="model">commercial.route</field>
+        <field name="arch" type="xml">
+            <list string="Commercial Routes"
+                  decoration-success="state == 'done'"
+                  decoration-info="state == 'in_progress'">
+                <field name="name"/>
+                <field name="date"/>
+                <field name="user_id"/>
+                <field name="stop_count" string="Paradas"/>
+                <field name="visited_count" string="Visitados"/>
+                <field name="order_count" string="Pedidos"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ── BÚSQUEDA (Odoo 19: separator en lugar de group con string) -->
+    <record id="view_commercial_route_search" model="ir.ui.view">
+        <field name="name">commercial.route.search</field>
+        <field name="model">commercial.route</field>
+        <field name="arch" type="xml">
+            <search string="Search Routes">
+                <field name="name"/>
+                <field name="user_id"/>
+                <field name="date"/>
+                <filter string="My Routes" name="my_routes"
+                        domain="[('user_id','=',uid)]"/>
+                <filter string="In Progress" name="in_progress"
+                        domain="[('state','=','in_progress')]"/>
+                <filter string="Done" name="done"
+                        domain="[('state','=','done')]"/>
+                <filter string="Today" name="today"
+                        domain="[('date','=',context_today().strftime('%Y-%m-%d'))]"/>
+                <separator string="Group By"/>
+                <group>
+                    <filter string="Salesperson" name="group_by_user"
+                            context="{'group_by':'user_id'}"/>
+                    <filter string="Status" name="group_by_state"
+                            context="{'group_by':'state'}"/>
+                    <filter string="Date" name="group_by_date"
+                            context="{'group_by':'date'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ── ACCIÓN ─────────────────────────────────────────────────── -->
+    <record id="action_commercial_route" model="ir.actions.act_window">
+        <field name="name">Commercial Routes</field>
+        <field name="res_model">commercial.route</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_commercial_route_search"/>
+        <field name="context">{'search_default_my_routes': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first commercial route
+            </p>
+            <p>
+                Organise customer visits by city or zone, optimise
+                the route and record visit results.
+            </p>
+        </field>
+    </record>
+
+</odoo>

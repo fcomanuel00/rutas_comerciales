@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_commercial_route_user,commercial.route user,model_commercial_route,commercial_routes.group_commercial_routes_user,1,1,1,0
+access_commercial_route_manager,commercial.route manager,model_commercial_route,commercial_routes.group_commercial_routes_manager,1,1,1,1
+access_commercial_route_stop_user,commercial.route.stop user,model_commercial_route_stop,commercial_routes.group_commercial_routes_user,1,1,1,0
+access_commercial_route_stop_manager,commercial.route.stop manager,model_commercial_route_stop,commercial_routes.group_commercial_routes_manager,1,1,1,1
+access_commercial_route_add_clients_user,commercial.route.add.clients user,model_commercial_route_add_clients,commercial_routes.group_commercial_routes_user,1,1,1,1

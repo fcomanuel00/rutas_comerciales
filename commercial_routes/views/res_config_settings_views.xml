@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_config_settings_commercial_routes" model="ir.ui.view">
+        <field name="name">res.config.settings.commercial.routes</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base_setup.action_general_configuration"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <div id="commercial_routes_config"
+                     class="app_settings_block"
+                     data-string="Commercial Routes"
+                     string="Commercial Routes"
+                     data-key="commercial_routes"
+                     groups="commercial_routes.group_commercial_routes_manager">
+                    <h2>Commercial Routes</h2>
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <label for="commercial_routes_google_api_key"/>
+                                <div class="text-muted">
+                                    Required for geocoding addresses and optimising routes by distance.
+                                    Enable <b>Geocoding API</b> in Google Cloud Console.
+                                </div>
+                                <div class="content-group mt-2">
+                                    <field name="commercial_routes_google_api_key"
+                                           placeholder="AIzaSy…"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

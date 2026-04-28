@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_commercial_route_add_clients_form" model="ir.ui.view">
+        <field name="name">commercial.route.add.clients.form</field>
+        <field name="model">commercial.route.add.clients</field>
+        <field name="arch" type="xml">
+            <form string="Add Customers to Route">
+                <sheet>
+                    <group string="Search Filters">
+                        <group>
+                            <field name="city_filter" placeholder="e.g. Seville"/>
+                            <field name="zone_filter" placeholder="e.g. Triana"/>
+                        </group>
+                        <group>
+                            <field name="only_without_coords"/>
+                            <div>
+                                <button name="action_search"
+                                        string="🔍 Search"
+                                        type="object"
+                                        class="btn btn-primary"/>
+                            </div>
+                        </group>
+                    </group>
+
+                    <field name="partner_ids">
+                        <list string="Customers Found">
+                            <field name="name"/>
+                            <field name="city"/>
+                            <field name="x_zona"/>
+                            <field name="phone"/>
+                            <field name="x_has_coords" string="GPS"/>
+                        </list>
+                    </field>
+                </sheet>
+                <footer>
+                    <button name="action_add_selected"
+                            string="✅ Add selected to route"
+                            type="object"
+                            class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+</odoo>

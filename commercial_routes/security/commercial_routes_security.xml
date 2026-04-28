@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Privilege (Odoo 19: reemplaza category_id en res.groups) -->
+    <record id="privilege_commercial_routes" model="res.groups.privilege">
+        <field name="name">Commercial Routes</field>
+        <field name="category_id" ref="base.module_category_sales_sales"/>
+    </record>
+
+    <!-- Grupo User: solo puede ver y usar rutas propias -->
+    <record id="group_commercial_routes_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="privilege_id" ref="privilege_commercial_routes"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Grupo Manager: gestión completa, ver todas las rutas -->
+    <record id="group_commercial_routes_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="privilege_id" ref="privilege_commercial_routes"/>
+        <field name="implied_ids" eval="[(4, ref('commercial_routes.group_commercial_routes_user'))]"/>
+    </record>
+
+</odoo>

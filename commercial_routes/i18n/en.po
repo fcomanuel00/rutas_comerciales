@@ -1,0 +1,180 @@
+# English translation for commercial_routes
+# Copyright (C) 2024 Framarketing
+# License OPL-1
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-01 00:00+0000\n"
+"PO-Revision-Date: 2024-01-01 00:00+0000\n"
+"Last-Translator: Framarketing\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. module: commercial_routes
+#: model:ir.ui.menu,name:commercial_routes.menu_commercial_routes_root
+msgid "Rutas Comerciales"
+msgstr "Commercial Routes"
+
+#. module: commercial_routes
+#: model:ir.ui.menu,name:commercial_routes.menu_commercial_routes_list
+msgid "Mis Rutas"
+msgstr "My Routes"
+
+#. module: commercial_routes
+#: model:ir.ui.menu,name:commercial_routes.menu_commercial_routes_partners
+msgid "Clientes por Zona"
+msgstr "Customers by Zone"
+
+#. module: commercial_routes
+#: model:ir.actions.act_window,name:commercial_routes.action_commercial_route
+msgid "Rutas Comerciales"
+msgstr "Commercial Routes"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__name
+msgid "Nombre de la ruta"
+msgstr "Route Name"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__user_id
+msgid "Comercial"
+msgstr "Salesperson"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__state
+msgid "Estado"
+msgstr "Status"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__city_filter
+msgid "Filtrar ciudad"
+msgstr "City Filter"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__zone_filter
+msgid "Filtrar zona"
+msgstr "Zone Filter"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__notes
+msgid "Notas generales"
+msgstr "General Notes"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__stop_ids
+msgid "Paradas"
+msgstr "Stops"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__stop_count
+msgid "Total paradas"
+msgstr "Total Stops"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__visited_count
+msgid "Visitados"
+msgstr "Visited"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route__order_count
+msgid "Pedidos"
+msgstr "Orders"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route_stop__partner_id
+msgid "Cliente"
+msgstr "Customer"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route_stop__visited
+msgid "Visitado"
+msgstr "Visited"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route_stop__visit_date
+msgid "Fecha visita"
+msgstr "Visit Date"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route_stop__result
+msgid "Resultado"
+msgstr "Result"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_commercial_route_stop__notes
+msgid "Observaciones"
+msgstr "Notes"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_res_partner__x_zona
+msgid "Zona"
+msgstr "Zone"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_res_partner__x_latitude
+msgid "Latitud"
+msgstr "Latitude"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_res_partner__x_longitude
+msgid "Longitud"
+msgstr "Longitude"
+
+#. module: commercial_routes
+#: model:ir.model.fields,field_description:commercial_routes.field_res_partner__route_visit_count
+msgid "Visitas"
+msgstr "Visits"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route__state:draft
+msgid "Borrador"
+msgstr "Draft"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route__state:in_progress
+msgid "En curso"
+msgstr "In Progress"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route__state:done
+msgid "Completada"
+msgstr "Done"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route_stop__result:pending
+msgid "Pendiente"
+msgstr "Pending"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route_stop__result:order
+msgid "Pedido realizado"
+msgstr "Order Placed"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route_stop__result:no_order
+msgid "Sin pedido"
+msgstr "No Order"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route_stop__result:not_home
+msgid "No estaba"
+msgstr "Not Available"
+
+#. module: commercial_routes
+#: selection:commercial_routes.field_commercial_route_stop__result:callback
+msgid "Volver a llamar"
+msgstr "Callback"
+
+#. module: commercial_routes
+#: model:res.groups,name:commercial_routes.group_commercial_routes_user
+msgid "Usuario"
+msgstr "User"
+
+#. module: commercial_routes
+#: model:res.groups,name:commercial_routes.group_commercial_routes_manager
+msgid "Gestor"
+msgstr "Manager"

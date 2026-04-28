@@ -64,18 +64,18 @@ class CommercialRoute(models.Model):
             rec.visited_count = len(visited)
             rec.order_count = len(visited.filtered(lambda s: s.result == 'order'))
 
-    @api.depends('stop_ids.sequence', 'stop_ids.partner_id.x_latitude',
-                 'stop_ids.partner_id.x_longitude')
+    @api.depends('stop_ids.sequence', 'stop_ids.partner_id.partner_latitude',
+                 'stop_ids.partner_id.partner_longitude')
     def _compute_maps_url(self):
         for rec in self:
             stops = rec.stop_ids.filtered(
-                lambda s: s.partner_id.x_latitude and s.partner_id.x_longitude
+                lambda s: s.partner_id.partner_latitude and s.partner_id.partner_longitude
             ).sorted('sequence')
             if not stops:
                 rec.google_maps_url = False
                 continue
             waypoints = '|'.join(
-                f'{s.partner_id.x_latitude},{s.partner_id.x_longitude}'
+                f'{s.partner_id.partner_latitude},{s.partner_id.partner_longitude}'
                 for s in stops
             )
             rec.google_maps_url = (
@@ -124,7 +124,7 @@ class CommercialRoute(models.Model):
         """Nearest-neighbour reordering. Requires coordinates on partners."""
         self.ensure_one()
         stops = self.stop_ids.filtered(
-            lambda s: s.partner_id.x_latitude and s.partner_id.x_longitude
+            lambda s: s.partner_id.partner_latitude and s.partner_id.partner_longitude
         )
         if len(stops) < 2:
             raise UserError(
@@ -137,8 +137,8 @@ class CommercialRoute(models.Model):
         while stops_list:
             current = optimized[-1]
             nearest = min(stops_list, key=lambda s: self._distance(
-                current.partner_id.x_latitude, current.partner_id.x_longitude,
-                s.partner_id.x_latitude, s.partner_id.x_longitude,
+                current.partner_id.partner_latitude, current.partner_id.partner_longitude,
+                s.partner_id.partner_latitude, s.partner_id.partner_longitude,
             ))
             optimized.append(nearest)
             stops_list.remove(nearest)
@@ -164,25 +164,28 @@ class CommercialRoute(models.Model):
     def action_geocode_all(self):
         self.ensure_one()
         partners = self.stop_ids.mapped('partner_id').filtered(
-            lambda p: not p.x_latitude or not p.x_longitude
+            lambda p: not p.partner_latitude or not p.partner_longitude
         )
         if not partners:
             return {
                 'type': 'ir.actions.client',
                 'tag': 'display_notification',
-                'params': {'message': 'All customers already have coordinates.', 'type': 'info'},
+                'params': {'message': 'Todos los clientes ya tienen coordenadas.', 'type': 'info'},
             }
         ok, errors = 0, []
         for partner in partners:
             try:
-                partner.action_geocode()
-                ok += 1
+                partner.geo_localize()
+                if partner.partner_latitude and partner.partner_longitude:
+                    ok += 1
+                else:
+                    errors.append(f'{partner.name}: direccion no encontrada')
             except Exception as e:
                 errors.append(f'{partner.name}: {e}')
 
-        msg = f'{ok} customers geocoded.'
+        msg = f'{ok} clientes geocodificados.'
         if errors:
-            msg += f' Errors ({len(errors)}): ' + '; '.join(errors[:3])
+            msg += f' Errores ({len(errors)}): ' + '; '.join(errors[:3])
         return {
             'type': 'ir.actions.client',
             'tag': 'display_notification',

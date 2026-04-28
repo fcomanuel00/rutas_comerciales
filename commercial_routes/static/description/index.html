@@ -7,174 +7,174 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'Segoe UI',Arial,sans-serif;background:#f7f9fc;color:#1a1a2e;}
-
-  /* Hero */
-  .hero{background:linear-gradient(135deg,#FF8619 0%,#FB274F 35%,#CD23B0 70%,#6D2FF1 100%);
-        padding:70px 40px;text-align:center;color:#fff;}
-  .hero h1{font-size:3em;font-weight:800;letter-spacing:-1px;margin-bottom:16px;}
-  .hero p{font-size:1.25em;opacity:.92;max-width:620px;margin:0 auto 32px;}
-  .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
-         border-radius:20px;padding:6px 16px;font-size:.85em;margin:4px;}
-
-  /* Section */
-  .section{max-width:1100px;margin:0 auto;padding:60px 30px;}
-  .section h2{font-size:2em;color:#6D2FF1;margin-bottom:12px;}
-  .section p{color:#444;line-height:1.7;margin-bottom:20px;}
-
-  /* Feature grid */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:32px;}
-  .card{background:#fff;border-radius:14px;padding:28px 24px;
-        box-shadow:0 2px 12px rgba(109,47,241,.08);border-top:4px solid;}
+  .hero{background:linear-gradient(135deg,#FF8619 0%,#FB274F 35%,#CD23B0 70%,#6D2FF1 100%);padding:70px 40px;text-align:center;color:#fff;}
+  .hero h1{font-size:2.6em;font-weight:800;letter-spacing:-1px;margin-bottom:16px;}
+  .hero p{font-size:1.15em;opacity:.92;max-width:640px;margin:0 auto 28px;}
+  .badge{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:20px;padding:6px 16px;font-size:.85em;margin:4px;}
+  .section{max-width:1000px;margin:0 auto;padding:56px 30px;}
+  .section h2{font-size:1.8em;color:#6D2FF1;margin-bottom:10px;}
+  .section p{color:#444;line-height:1.7;margin-bottom:20px;font-size:.97em;}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:32px;}
+  .card{background:#fff;border-radius:14px;padding:24px 20px;box-shadow:0 2px 12px rgba(109,47,241,.07);border-top:4px solid;}
   .card:nth-child(1){border-color:#FF8619;}
   .card:nth-child(2){border-color:#FB274F;}
   .card:nth-child(3){border-color:#CD23B0;}
   .card:nth-child(4){border-color:#6D2FF1;}
   .card:nth-child(5){border-color:#FF8619;}
   .card:nth-child(6){border-color:#FB274F;}
-  .card .icon{font-size:2.2em;margin-bottom:12px;}
-  .card h3{font-size:1.1em;color:#2C1458;margin-bottom:8px;}
-  .card p{font-size:.93em;color:#555;line-height:1.6;margin:0;}
-
-  /* Steps */
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:28px;}
-  .step{text-align:center;padding:28px 20px;}
-  .step-num{width:52px;height:52px;border-radius:50%;
-            background:linear-gradient(135deg,#FF8619,#6D2FF1);
-            color:#fff;font-size:1.5em;font-weight:700;
-            display:flex;align-items:center;justify-content:center;margin:0 auto 16px;}
-  .step h3{color:#2C1458;margin-bottom:8px;}
-  .step p{color:#555;font-size:.93em;}
-
-  /* Screenshot */
-  .screenshot{background:#fff;border-radius:14px;overflow:hidden;
-              box-shadow:0 4px 24px rgba(0,0,0,.10);margin:24px 0;}
+  .card .icon{font-size:1.8em;margin-bottom:10px;}
+  .card h3{font-size:1em;color:#2C1458;margin-bottom:8px;font-weight:700;}
+  .card p{font-size:.88em;color:#555;line-height:1.6;margin:0;}
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px;}
+  .step{background:#fff;border-radius:14px;padding:28px 22px;box-shadow:0 2px 10px rgba(109,47,241,.06);}
+  .step-num{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#FF8619,#6D2FF1);color:#fff;font-size:1.3em;font-weight:700;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .step h3{color:#2C1458;margin-bottom:8px;font-size:1em;font-weight:700;}
+  .step p{color:#555;font-size:.88em;line-height:1.6;}
+  .step ul{color:#555;font-size:.88em;line-height:1.8;padding-left:16px;margin-top:6px;}
+  .screenshot{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.09);margin:16px 0;}
   .screenshot img{width:100%;display:block;}
-
-  /* Specs table */
-  table{width:100%;border-collapse:collapse;margin-top:20px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.07);}
-  th{background:linear-gradient(135deg,#6D2FF1,#CD23B0);color:#fff;padding:14px 20px;text-align:left;}
-  td{padding:13px 20px;border-bottom:1px solid #f0f0f0;color:#333;}
+  .screenshot-label{padding:10px 16px;font-size:.82em;color:#6D2FF1;font-weight:600;background:#f0eefe;border-top:1px solid #e0d8fc;}
+  table{width:100%;border-collapse:collapse;margin-top:20px;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+  th{background:linear-gradient(135deg,#6D2FF1,#CD23B0);color:#fff;padding:13px 20px;text-align:left;font-size:.9em;}
+  td{padding:12px 20px;border-bottom:1px solid #f0f0f0;color:#333;font-size:.9em;}
   tr:last-child td{border-bottom:none;}
   tr:nth-child(even) td{background:#fafafe;}
-
-  /* Support */
-  .support{background:linear-gradient(135deg,#FF8619 0%,#FB274F 35%,#CD23B0 70%,#6D2FF1 100%);
-           border-radius:16px;padding:48px 40px;text-align:center;color:#fff;margin-top:48px;}
-  .support h2{font-size:1.8em;margin-bottom:12px;}
-  .support p{opacity:.92;margin-bottom:6px;}
-  .support a{color:#fff;font-weight:600;}
+  td:first-child{font-weight:600;color:#2C1458;width:220px;}
+  .support{background:linear-gradient(135deg,#FF8619 0%,#FB274F 35%,#CD23B0 70%,#6D2FF1 100%);border-radius:16px;padding:48px 40px;text-align:center;color:#fff;margin-top:48px;}
+  .support h2{font-size:1.6em;margin-bottom:12px;}
+  .support p{opacity:.92;margin-bottom:6px;font-size:.95em;}
+  .support a{color:#fff;font-weight:700;}
+  .divider{height:1px;background:#e8e4f5;max-width:1000px;margin:0 auto;}
 </style>
 </head>
 <body>
 
-<!-- HERO -->
 <div class="hero">
   <h1>🗺️ Commercial Routes</h1>
-  <p>Plan, optimize and track every field sales visit — all inside Odoo 19.</p>
+  <p>Plan, optimize and track every field sales visit — all inside Odoo 19. No more juggling between Odoo, Google Maps and WhatsApp notes.</p>
   <span class="badge">Odoo 19</span>
-  <span class="badge">Community</span>
+  <span class="badge">Community &amp; Enterprise</span>
   <span class="badge">Sales</span>
   <span class="badge">Google Maps</span>
   <span class="badge">Route Optimization</span>
 </div>
 
-<!-- FEATURES -->
 <div class="section">
   <h2>Everything your sales team needs on the road</h2>
-  <p>Stop juggling between Odoo, Google Maps and WhatsApp notes. Manage the full visit cycle in one place.</p>
+  <p>From planning the visit list to logging the outcome of each stop — the full sales cycle in one place.</p>
   <div class="grid">
     <div class="card">
       <div class="icon">📍</div>
       <h3>City &amp; Zone Filtering</h3>
-      <p>Filter customers by city and a custom <em>Zone</em> field (e.g. "North Industrial", "City Centre") to build focused visit lists.</p>
+      <p>Filter customers by city and a custom Zone field (e.g. "North Industrial", "City Centre") to build focused, territory-based visit lists in seconds.</p>
     </div>
     <div class="card">
       <div class="icon">🔀</div>
       <h3>Manual or Auto-Optimized Order</h3>
-      <p>Drag stops to reorder manually, or let the nearest-neighbour algorithm sort them by driving distance automatically.</p>
+      <p>Drag stops to reorder manually, or let the nearest-neighbour algorithm sort them by shortest driving distance automatically — with one click.</p>
     </div>
     <div class="card">
       <div class="icon">🗺️</div>
       <h3>One-Tap Google Maps</h3>
-      <p>Open the full route in Google Maps with all waypoints pre-loaded — works on desktop and mobile browsers.</p>
+      <p>Open the full route in Google Maps with all waypoints pre-loaded and ready to navigate. Works on desktop and mobile browsers.</p>
     </div>
     <div class="card">
       <div class="icon">✅</div>
-      <h3>Visit Results</h3>
-      <p>Mark each stop: <em>Order Placed</em>, <em>No Order</em>, <em>Not Available</em>, or <em>Callback</em>. Add free-text notes per visit.</p>
+      <h3>Visit Results per Stop</h3>
+      <p>Mark each stop: Order Placed, No Order, Not Available, or Callback. Add free-text notes with observations for each visit.</p>
     </div>
     <div class="card">
       <div class="icon">📊</div>
       <h3>Visit History per Customer</h3>
-      <p>Every visit is stored on the customer card. Managers see a full timeline of interactions without leaving the contact form.</p>
+      <p>Every visit is stored on the customer card. Managers see the full interaction timeline — date, result and notes — without leaving the contact form.</p>
     </div>
     <div class="card">
       <div class="icon">🌐</div>
       <h3>Batch Geocoding</h3>
-      <p>Geocode all customer addresses in one click using the Google Geocoding API. Coordinates are saved on each partner record.</p>
+      <p>Geocode all customer addresses in one click using Odoo's native Geocoding API integration. Coordinates saved on each partner record automatically.</p>
     </div>
   </div>
 </div>
 
-<!-- SCREENSHOT -->
-<div class="section" style="padding-top:0;">
+<div class="divider"></div>
+
+<div class="section">
+  <h2>See it in action</h2>
   <div class="screenshot">
-    <img src="screenshot_1.png" alt="Commercial Routes – Route List"/>
+    <img src="screenshot_1.png" alt="Route list overview"/>
+    <div class="screenshot-label">Route list — overview of all commercial routes with status, stops and order count</div>
   </div>
-  <div class="screenshot" style="margin-top:16px;">
-    <img src="screenshot_2.png" alt="Commercial Routes – Route Form"/>
+  <div class="screenshot">
+    <img src="screenshot_2.png" alt="Route form with stops"/>
+    <div class="screenshot-label">Route form — add customers, drag to reorder, optimize by distance, open Google Maps</div>
   </div>
-  <div class="screenshot" style="margin-top:16px;">
-    <img src="screenshot_3.png" alt="Commercial Routes – Customer Card"/>
+  <div class="screenshot">
+    <img src="screenshot_3.png" alt="Customer card with zone field"/>
+    <div class="screenshot-label">Customer card — Zone field and visit history counter</div>
   </div>
-  <div class="screenshot" style="margin-top:16px;">
-    <img src="screenshot_4.png" alt="Commercial Routes – Google Maps API Settings"/>
+  <div class="screenshot">
+    <img src="screenshot_4.png" alt="Google Maps API settings"/>
+    <div class="screenshot-label">Settings — Google Maps API key configuration via Odoo system parameters</div>
   </div>
 </div>
 
-<!-- HOW IT WORKS -->
-<div class="section" style="background:#fff;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,.06);">
-  <h2 style="text-align:center;">How it works</h2>
+<div class="divider"></div>
+
+<div class="section">
+  <h2>How it works</h2>
+  <p>Three steps from planning to closing the route.</p>
   <div class="steps">
     <div class="step">
       <div class="step-num">1</div>
-      <h3>Create a Route</h3>
-      <p>Set the date, assign a salesperson and use city/zone filters to find the right customers.</p>
+      <h3>Plan the route</h3>
+      <p>Create a route, set the date and assign a salesperson. Use the city and zone filters to find the right customers, then add them with checkboxes. Each stop shows phone, city, zone and GPS status.</p>
     </div>
     <div class="step">
       <div class="step-num">2</div>
-      <h3>Order the Stops</h3>
-      <p>Drag stops manually or press <strong>Optimize Order</strong> to sort by shortest driving distance.</p>
+      <h3>Order the stops</h3>
+      <p>Choose your ordering method:</p>
+      <ul>
+        <li><strong>Manual</strong> — drag and drop stops into the order you want</li>
+        <li><strong>Automatic</strong> — Optimize Order reorders by shortest driving distance</li>
+        <li><strong>Navigate</strong> — Open Maps launches Google Maps with all waypoints pre-loaded</li>
+      </ul>
     </div>
     <div class="step">
       <div class="step-num">3</div>
-      <h3>Hit the Road</h3>
-      <p>Start the route, open Google Maps with one tap, visit customers and log results on the go.</p>
+      <h3>Hit the road and log results</h3>
+      <p>Start the route and mark each stop as Visited. Select the outcome:</p>
+      <ul>
+        <li>Order Placed</li>
+        <li>No Order</li>
+        <li>Not Available</li>
+        <li>Callback needed</li>
+      </ul>
+      <p style="margin-top:8px;">Add observations. All visits are stored on the customer card for future reference.</p>
     </div>
   </div>
 </div>
 
-<!-- SPECS -->
+<div class="divider"></div>
+
 <div class="section">
   <h2>Technical Specs</h2>
   <table>
     <tr><th>Item</th><th>Detail</th></tr>
     <tr><td>Odoo Version</td><td>19.0 Community &amp; Enterprise</td></tr>
-    <tr><td>Dependencies</td><td>base, contacts, mail</td></tr>
+    <tr><td>Dependencies</td><td>base, contacts, mail, base_geolocalize</td></tr>
     <tr><td>New Models</td><td>commercial.route, commercial.route.stop</td></tr>
     <tr><td>Extended Models</td><td>res.partner, res.config.settings</td></tr>
-    <tr><td>New Fields on Partner</td><td>Zone (x_zona), Latitude, Longitude</td></tr>
+    <tr><td>New Fields on Partner</td><td>Zone (x_zona) — coordinates use Odoo native fields</td></tr>
     <tr><td>Security Groups</td><td>User (create/edit own routes), Manager (full access)</td></tr>
-    <tr><td>Google API Required</td><td>Geocoding API (optional — only for geocoding &amp; optimization)</td></tr>
+    <tr><td>Geocoding</td><td>Odoo native base_geolocalize (Google Maps API)</td></tr>
     <tr><td>License</td><td>OPL-1</td></tr>
   </table>
 </div>
 
-<!-- SUPPORT -->
-<div class="section">
+<div class="section" style="padding-top:0;">
   <div class="support">
     <h2>Need help?</h2>
-    <p>We're here for you. Reach out any time.</p>
+    <p>We respond quickly to every support request.</p>
     <p>📧 <a href="mailto:info@framarketing.es">info@framarketing.es</a></p>
     <p>🌐 <a href="https://framarketing.es" target="_blank">framarketing.es</a></p>
   </div>
